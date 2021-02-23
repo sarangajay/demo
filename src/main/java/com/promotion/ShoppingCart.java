@@ -8,7 +8,7 @@ public class ShoppingCart {
 
     private ProductInventory productInventory;
 
-    public <T> ShoppingCart(List<Item> items) {
+    public ShoppingCart(List<Item> items) {
         this.items = items;
         this.productInventory = new ProductInventory();
     }
@@ -18,9 +18,8 @@ public class ShoppingCart {
         for(Item item : items) {
             Double unitPrice = this.productInventory.getInventory().get(item.getItemName());
             if(unitPrice != null)
-                total = unitPrice * item.getQuantity();
+                total = total + unitPrice * item.getQuantity();
         }
-
         return total;
     }
 }

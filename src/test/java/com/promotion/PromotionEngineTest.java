@@ -20,4 +20,13 @@ public class PromotionEngineTest {
         ShoppingCart cart = new ShoppingCart(Arrays.asList(new Item("A", 2)));
         assertEquals(100.0, cart.getTotal());
     }
+
+    @Test
+    public void totalOfMultipleSingleItemCart() {
+        ShoppingCart cart = new ShoppingCart(Arrays.asList(
+                new Item("A", 1),
+                new Item("B", 1),
+                new Item("C", 1)));
+        assertEquals(100.0, cart.getTotal());
+    }
 }
