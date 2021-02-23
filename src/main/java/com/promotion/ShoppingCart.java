@@ -1,25 +1,26 @@
 package com.promotion;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class ShoppingCart {
 
     private List<Item> items;
 
-    private ProductInventory productInventory;
+    private ProductCostCalculator productCostCalculator;
 
     public ShoppingCart(List<Item> items) {
         this.items = items;
-        this.productInventory = new ProductInventory();
+        this.productCostCalculator = new ProductCostCalculator(new ProductInventory());
     }
 
     public double getTotal() {
-        Double total = 0.00;
-        for(Item item : items) {
-            Double unitPrice = this.productInventory.getInventory().get(item.getItemName());
-            if(unitPrice != null)
-                total = total + unitPrice * item.getQuantity();
-        }
-        return total;
+        AtomicReference<Double> total = new AtomicReference<>(0.00);
+        items.stream().forEach(
+                e -> {
+                    total.set(this.productCostCalculator.calculateProductCost(e, total.get()));
+                }
+        );
+        return total.get();
     }
 }

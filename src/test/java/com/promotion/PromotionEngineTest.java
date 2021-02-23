@@ -2,7 +2,6 @@ package com.promotion;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,22 +10,26 @@ public class PromotionEngineTest {
 
     @Test
     public void totalOfEmptyCart(){
-        ShoppingCart cart = new ShoppingCart(new ArrayList<>());
+        ShoppingCart cart = buildCartWithItems();
         assertEquals(0.0, cart.getTotal());
     }
 
     @Test
     public void totalOfSingleItemCart() {
-        ShoppingCart cart = new ShoppingCart(Arrays.asList(new Item("A", 2)));
+        ShoppingCart cart = buildCartWithItems(new Item("A", 2));
         assertEquals(100.0, cart.getTotal());
     }
 
     @Test
     public void totalOfMultipleSingleItemCart() {
-        ShoppingCart cart = new ShoppingCart(Arrays.asList(
+        ShoppingCart cart = buildCartWithItems(
                 new Item("A", 1),
                 new Item("B", 1),
-                new Item("C", 1)));
+                new Item("C", 1));
         assertEquals(100.0, cart.getTotal());
+    }
+
+    private ShoppingCart buildCartWithItems(Item... items) {
+        return new ShoppingCart(Arrays.asList(items));
     }
 }
