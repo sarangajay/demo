@@ -8,6 +8,6 @@ public class JunitSetupTest {
 
     @Test
     public void junitSetupTest(){
-         assertEquals(1,2);
+         assertEquals(1,1);
     }
 }
