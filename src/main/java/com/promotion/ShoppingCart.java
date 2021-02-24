@@ -14,7 +14,12 @@ public class ShoppingCart {
         this.productCostCalculator = new ProductCostCalculator(new ProductInventory());
     }
 
-    public double getTotal() {
+    public double calculateTotal() {
+        SingleItemPromotion singleItemPromotion = new SingleItemPromotion();
+        return singleItemPromotion.calculate(this.items) + getTotal();
+    }
+
+    private double getTotal() {
         AtomicReference<Double> total = new AtomicReference<>(0.00);
         items.stream().forEach(
                 e -> {
