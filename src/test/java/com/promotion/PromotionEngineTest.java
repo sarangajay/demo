@@ -29,6 +29,12 @@ public class PromotionEngineTest {
         assertEquals(100.0, cart.getTotal());
     }
 
+    @Test
+    public void totalOfSingleItemPromotion(){
+        ShoppingCart cart = buildCartWithItems(new Item("A", 3));
+        assertEquals(130.0, cart.getTotal());
+    }
+
     private ShoppingCart buildCartWithItems(Item... items) {
         return new ShoppingCart(Arrays.asList(items));
     }
