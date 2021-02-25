@@ -3,11 +3,11 @@ package com.promotion;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ProductInventory {
+public class ProductInventoryStore {
 
     private final Map inventory = new HashMap<String, Double>();
 
-    public ProductInventory() {
+    public ProductInventoryStore() {
         this.inventory.put("A",50.00);
         this.inventory.put("B",30.00);
         this.inventory.put("C",20.00);

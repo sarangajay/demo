@@ -1,5 +1,6 @@
 package com.promotion;
 
+import com.promotion.dto.Item;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

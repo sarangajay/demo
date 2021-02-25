@@ -1,4 +1,4 @@
-package com.promotion;
+package com.promotion.dto;
 
 public class PromotionData {
 

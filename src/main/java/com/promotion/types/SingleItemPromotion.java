@@ -1,4 +1,7 @@
-package com.promotion;
+package com.promotion.types;
+
+import com.promotion.dto.Item;
+import com.promotion.dto.PromotionData;
 
 import java.util.HashMap;
 import java.util.List;

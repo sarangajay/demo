@@ -1,4 +1,6 @@
-package com.promotion;
+package com.promotion.types;
+
+import com.promotion.dto.Item;
 
 import java.util.List;
 
