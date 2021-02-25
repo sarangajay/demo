@@ -15,8 +15,8 @@ public class ShoppingCart {
     }
 
     public double calculateTotal() {
-        SingleItemPromotion singleItemPromotion = new SingleItemPromotion();
-        return singleItemPromotion.calculate(this.items) + getTotal();
+        PromotionI promotionService = new SingleItemPromotion();
+        return promotionService.calculate(this.items) + getTotal();
     }
 
     private double getTotal() {

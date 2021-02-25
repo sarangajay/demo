@@ -38,6 +38,16 @@ public class PromotionEngineTest {
         assertEquals(370.00, cart.calculateTotal());
     }
 
+    @Test
+    public void totalOfMultiItemPromotion(){
+        ShoppingCart cart = buildCartWithItems(
+                new Item("A", 3),
+                new Item("B", 5),
+                new Item("C", 1),
+                new Item("D", 1));
+        assertEquals(280.00, cart.calculateTotal());
+    }
+
     private ShoppingCart buildCartWithItems(Item... items) {
         return new ShoppingCart(Arrays.asList(items));
     }
